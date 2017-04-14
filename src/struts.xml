@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"  
+    "http://struts.apache.org/dtds/struts-2.0.dtd">  
+<struts>  
+    <include file="example.xml"/>
+    <package name="default" extends="struts-default">
+    	<action name="loginAction" class="edu.login.Action.LoginAction">
+    		<result name="success">/mainFrame/main.jsp</result>
+    		<result name="error">/login/login.jsp</result>
+    		<result name="input">/login/login.jsp</result>
+    	</action>
+	    <action name="registerAction" class="edu.login.Action.RegisterAction">
+	    	<result name="success">/login/login.jsp</result>
+	    	<result name="input">/login/register.jsp</result>
+	    	<result name="error">/login/register.jsp</result>
+	    </action>
+	    <action name="upMessAction" class="edu.personManager.Action.UpdateMessAction">
+	    	<result name="success">/personMessage/updateMessage.jsp</result>
+	    	<result name="error">/personMessage/updateMessage.jsp</result>
+	    </action>
+	    <action name="upPasswordAction" class="edu.personManager.Action.UpdatePass">
+	    	<result name="success">/personMessage/updatePass.jsp</result>
+	    	<result name="input">/personMessage/updatePass.jsp</result>
+	    </action>
+	    <action name="addDayAction" class="edu.dateTimeManager.Action.AddDayAction">
+	    	<result name="success">/dateTimeManager/lookDay.jsp</result>
+	    	<result name="input">/dateTimeManager/addDay.jsp</result>
+	    	<result name="error">/dateTimeManager/addDay.jsp</result>
+	    </action>
+	    
+	    <action name="findDayAction" class="edu.dateTimeManager.Action.FindDayAction">
+	    	<result name="success">/dateTimeManager/findDay.jsp</result>
+	    	<result name="input">/dateTimeManager/lookDay.jsp</result>
+	    	<result name="error">/dateTimeManager/lookDay.jsp</result>
+	    </action>
+	    <action name="upDayAction" class="edu.dateTimeManager.Action.UpdateDayAction">
+	    	<result name="success">/dateTimeManager/lookDay.jsp</result>
+	    	<result name="input">/dateTimeManager/lookDay.jsp</result>
+	    	<result name="error">/dateTimeManager/lookDay.jsp</result>
+	    </action>
+	    <action name="upFileAction" class="edu.fileManager.Action.UpFileAction">
+	    	<result name="success">/fileManager/lookFile.jsp</result>
+	    	<result name="input">/fileManager/lookFile.jsp</result>
+	    	<result name="error">/fileManager/lookFile.jsp</result>
+	    </action>
+	    <action name="findFileAction" class="edu.fileManager.Action.FindFileAction">
+	    	<result name="success">/fileManager/findFile.jsp</result>
+	    	<result name="input">/fileManager/lookFile.jsp</result>
+	    	<result name="error">/fileManager/lookFile.jsp</result>
+	    </action>
+	    <action name="downFileAction" class="edu.fileManager.Action.DownFileAction">
+			<result name="success" type="stream">
+				<!-- <param name="contentType">image/jpg</param> -->
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="${fileName}"</param>
+				<param name="bufferSize">40960</param>
+			</result>
+		</action>
+	    <action name="deleteFileAction" class="edu.fileManager.Action.DeleteFileAction">
+			<result name="success">/fileManager/lookFile.jsp</result>
+			<result name="input">/fileManager/lookFile.jsp</result>
+			<result name="error">/fileManager/lookFile.jsp</result>
+		</action>
+    </package> 
+</struts>
